@@ -8,7 +8,7 @@ val openAiKey: String = loadApiKey("OPENAI_API_KEY")
 
 val googleApiKey: String = loadApiKey("GOOGLE_API_KEY")
 
-val googleEnginKey: String = loadApiKey("GOOGLE_SEARCH_ENGINE_ID")
+val googleEngineKey: String = loadApiKey("GOOGLE_SEARCH_ENGINE_ID")
 
 fun loadApiKey(key: String): String {
     val properties = Properties()
