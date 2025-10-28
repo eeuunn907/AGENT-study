@@ -35,6 +35,8 @@ dependencies {
     implementation("com.aallam.openai:openai-client:3.7.1")
 
     runtimeOnly("io.ktor:ktor-client-okhttp:1.6.7")
+
+    implementation("com.aallam.openai:openai-client:3.6.0")
 }
 
 tasks.test {
@@ -42,7 +44,7 @@ tasks.test {
 }
 
 kotlin {
-    jvmToolchain(8)
+    jvmToolchain(17)
 }
 
 application {
