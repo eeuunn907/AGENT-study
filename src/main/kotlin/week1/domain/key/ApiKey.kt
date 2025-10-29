@@ -1,5 +1,7 @@
 package week1.domain.key
 
+import java.io.File
+import java.io.FileInputStream
 import java.io.FileNotFoundException
 import java.util.Properties
 
@@ -11,9 +13,16 @@ val googleApiKey: String = loadApiKey("GOOGLE_API_KEY")
 val googleEngineKey: String = loadApiKey("GOOGLE_SEARCH_ENGINE_ID")
 
 fun loadApiKey(key: String): String {
-    val properties = Properties()
-    val inputStream = Thread.currentThread().contextClassLoader.getResourceAsStream("local.properties")
-        ?: throw FileNotFoundException("Property file 'local.properties' not found in the classpath")
-    properties.load(inputStream)
-    return properties.getProperty(key) ?: throw IllegalArgumentException("API Key not found")
+    val envFile = File(".env")
+
+    if (envFile.exists()) {
+        FileInputStream(envFile).use { input ->
+            Properties().load(input)
+        }
+        Properties().getProperty(key)?.let { return it }
+    }
+
+    System.getenv(key)?.let { return it }
+
+    throw FileNotFoundException("API key for '$key' not found in .env or environment variables.")
 }
