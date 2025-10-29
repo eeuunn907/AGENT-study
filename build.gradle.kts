@@ -50,11 +50,3 @@ kotlin {
 application {
     mainClass.set("MainKt")
 }
-
-sourceSets {
-    main {
-        resources {
-            srcDirs("src/main/resources")
-        }
-    }
-}
