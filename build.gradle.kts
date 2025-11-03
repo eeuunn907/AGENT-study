@@ -11,6 +11,7 @@ repositories {
 }
 
 dependencies {
+    implementation("io.ktor:ktor-client-cio-jvm:2.3.10")
     testImplementation(kotlin("test"))
 
     implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.9")
@@ -27,6 +28,11 @@ dependencies {
     implementation("io.ktor:ktor-client-cio:2.3.10")
     implementation("io.ktor:ktor-client-json:1.6.7")
     implementation("io.ktor:ktor-client-serialization:2.3.10")
+
+    implementation("com.aallam.openai:openai-client:3.7.1")
+
+    implementation("io.ktor:ktor-client-content-negotiation:2.3.5")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.5")
 
     implementation("io.ktor:ktor-server-netty:2.3.0")
 
