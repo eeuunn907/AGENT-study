@@ -15,5 +15,5 @@
 .externalNativeBuild
 .cxx
 
-local.properties
-.env
+src/main/resources/local.properties
+src/main/resources/.env
