@@ -1,10 +1,9 @@
 import kotlinx.coroutines.runBlocking
-import `week1-refactoring`.domain.llm.service.ViewService
-import week2.core.DeveloperAgent
+import `week1-refactoring`.domain.llm.service.LLMService
 
 fun main() = runBlocking {
     try {
-        val vm = ViewService()
+        val vm = LLMService()
         vm.callOpenAi()
     } catch (e: Exception) {
         e.printStackTrace()

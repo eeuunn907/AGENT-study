@@ -9,7 +9,7 @@ import kotlinx.serialization.json.putJsonObject
 
 val params = listOf(
     ChatCompletionFunction(
-        name = "get_link",
+        name = "link",
         description = "I want to get links related to software development.",
         parameters = Parameters.buildJsonObject {
             put("type", "object")
@@ -24,7 +24,7 @@ val params = listOf(
         }
     ),
     ChatCompletionFunction(
-        name = "product_price",
+        name = "price",
         description = "I want to get the price of a product.",
         parameters = Parameters.buildJsonObject {
             put("type", "object")
@@ -45,7 +45,7 @@ val params = listOf(
         }
     ),
     ChatCompletionFunction(
-        name = "service_description",
+        name = "description",
         description = "I want service information explained.",
         parameters = Parameters.buildJsonObject {
             put("type", "object")

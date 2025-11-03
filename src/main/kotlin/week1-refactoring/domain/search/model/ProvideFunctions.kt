@@ -7,11 +7,11 @@ import `week1-refactoring`.domain.agent.serviceDescription
 
 fun provideFunction(functionName: String, value: Map<String, String>): String {
     return when (functionName) {
-        "get_link" -> link(value)
+        "link" -> link(value)
 
-        "product_price" -> productPrice(value)
+        "price" -> productPrice(value)
 
-        "service_description" -> serviceDescription(value)
+        "description" -> serviceDescription(value)
 
         else -> throw RuntimeException("function name is incorrect")
     }
