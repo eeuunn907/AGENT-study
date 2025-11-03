@@ -18,7 +18,7 @@ class ViewService {
                 val result = WebSurferAgent(
                     openAiRepository = OpenAI()
                 ).execute(
-                    model = "gpt-4",
+                    model = "gpt-4.1-min",
                     content = testSet,
                 )
                 println("Question: \n$testSet\n")
