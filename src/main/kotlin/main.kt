@@ -1,15 +1,15 @@
 import kotlinx.coroutines.runBlocking
-import week1.presentation.WeekOneViewModel
+import `week1-refactoring`.domain.llm.service.ViewService
 import week2.core.DeveloperAgent
 
-//fun main() = runBlocking {
-//    try {
-//        val vm = WeekOneViewModel()
-//        vm.callOpenAi()
-//    } catch (e: Exception) {
-//        e.printStackTrace()
-//    }
-//}
+fun main() = runBlocking {
+    try {
+        val vm = ViewService()
+        vm.callOpenAi()
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+}
 
 //fun main() {
 //    println(
