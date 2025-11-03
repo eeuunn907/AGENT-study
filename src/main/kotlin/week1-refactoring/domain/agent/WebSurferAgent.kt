@@ -1,7 +1,7 @@
 package `week1-refactoring`.domain.agent
 
 import com.aallam.openai.api.model.ModelId
-import `week1-refactoring`.domain.llm.model.LLMRequest
+import `week1-refactoring`.domain.llm.dto.model.LLMRequest
 import `week1-refactoring`.domain.presentation.LLMRepository
 
 class WebSurferAgent(
