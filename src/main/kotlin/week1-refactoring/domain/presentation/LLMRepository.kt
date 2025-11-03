@@ -1,7 +1,7 @@
 package `week1-refactoring`.domain.presentation
 
-import `week1-refactoring`.domain.llm.model.LLMRequest
-import `week1-refactoring`.domain.llm.model.LLMResponse
+import `week1-refactoring`.domain.llm.dto.model.LLMRequest
+import `week1-refactoring`.domain.llm.dto.model.LLMResponse
 
 
 interface LLMRepository {
