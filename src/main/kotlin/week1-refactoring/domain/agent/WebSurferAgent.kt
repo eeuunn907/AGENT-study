@@ -1,0 +1,19 @@
+package `week1-refactoring`.domain.agent
+
+import com.aallam.openai.api.model.ModelId
+import `week1-refactoring`.domain.llm.model.LLMRequest
+import `week1-refactoring`.domain.presentation.LLMRepository
+
+class WebSurferAgent(
+    private val openAiRepository: LLMRepository
+) {
+    suspend fun execute(model: String, content: String): String {
+        val response = openAiRepository.callOpenAi(
+            request = LLMRequest(
+                model = ModelId(model),
+                question = content
+            )
+        )
+        return response.answer
+    }
+}
