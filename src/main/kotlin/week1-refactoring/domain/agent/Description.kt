@@ -40,7 +40,7 @@ private suspend fun callOpenAi(companyName: String, serviceName: String, informa
 
     val response = openAI.chatCompletion(
         request = ChatCompletionRequest(
-            model = ModelId("gpt-4"),
+            model = ModelId("gpt-4.1-mini"),
             messages = chatMessages,
         )
     )
