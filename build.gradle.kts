@@ -28,6 +28,8 @@ dependencies {
     implementation("io.ktor:ktor-client-json:1.6.7")
     implementation("io.ktor:ktor-client-serialization:2.3.10")
 
+    implementation("io.ktor:ktor-server-netty:2.3.0")
+
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
 
     implementation("com.google.code.gson:gson:2.9.1")
