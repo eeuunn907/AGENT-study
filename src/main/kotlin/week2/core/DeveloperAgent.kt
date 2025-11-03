@@ -16,7 +16,7 @@ object DeveloperAgent {
             "page views" in req -> WebDevTool.createPageViewPage()
             "todo" in req -> WebDevTool.createTodoPage()
             else -> {
-                println("❌ Unknown request")
+                println("Unknown request")
                 return
             }
         }
