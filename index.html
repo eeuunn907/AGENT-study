@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List</title>
+    <style>
+        body { background:#e0e0e0; font-family:sans-serif; display:flex; flex-direction:column; align-items:center; padding-top:50px; }
+        .todo-box { background:#e0e0e0; box-shadow:9px 9px 16px #bebebe, -9px -9px 16px #ffffff;
+                    border-radius:20px; width:300px; padding:20px; }
+        input { width:80%; padding:10px; border:none; border-radius:10px; box-shadow:inset 2px 2px 5px #bebebe, inset -2px -2px 5px #ffffff; }
+        button { margin-left:10px; padding:10px 15px; border:none; border-radius:10px; background:#e0e0e0;
+                 box-shadow:3px 3px 6px #bebebe, -3px -3px 6px #ffffff; cursor:pointer; }
+        li { list-style:none; margin:10px 0; padding:10px; background:#e0e0e0; border-radius:10px;
+             box-shadow:inset 2px 2px 5px #bebebe, inset -2px -2px 5px #ffffff; display:flex; justify-content:space-between; align-items:center; }
+    </style>
+</head>
+<body>
+    <div class="todo-box">
+        <h2>📝 Neumorphism Todo</h2>
+        <div><input id="todoInput" placeholder="Enter todo"/><button onclick="addTodo()">Add</button></div>
+        <ul id="todoList"></ul>
+    </div>
+    <script>
+        let todos = JSON.parse(localStorage.getItem('todos') || '[]');
+        const list = document.getElementById('todoList');
+        function render() {
+            list.innerHTML = '';
+            todos.forEach((t, i) => {
+                const li = document.createElement('li');
+                li.innerHTML = t + '<button onclick="del('+i+')">🗑️</button>';
+                list.appendChild(li);
+            });
+            localStorage.setItem('todos', JSON.stringify(todos));
+        }
+        function addTodo() {
+            const input = document.getElementById('todoInput');
+            if (input.value.trim()) { todos.push(input.value.trim()); input.value=''; render(); }
+        }
+        function del(i){ todos.splice(i,1); render(); }
+        render();
+    </script>
+</body>
+</html>
