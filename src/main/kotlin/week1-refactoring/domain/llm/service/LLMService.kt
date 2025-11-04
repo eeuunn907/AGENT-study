@@ -18,7 +18,7 @@ class LLMService {
                 val result = WebSurferAgent(
                     openAiRepository = OpenAI()
                 ).execute(
-                    model = "gpt-4.1-min",
+                    model = "gpt-4.1-mini",
                     content = testSet,
                 )
                 println("Question: \n$testSet\n")
