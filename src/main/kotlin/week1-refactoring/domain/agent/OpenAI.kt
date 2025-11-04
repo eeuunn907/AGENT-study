@@ -1,12 +1,7 @@
 package `week1-refactoring`.domain.agent
 
-import com.aallam.openai.api.chat.ChatCompletionRequest
-import com.aallam.openai.api.chat.ChatMessage
-import com.aallam.openai.api.chat.ChatRole
-import com.aallam.openai.api.chat.ToolCall
+import com.aallam.openai.api.chat.*
 import com.aallam.openai.client.OpenAI
-import io.ktor.client.*
-import io.ktor.client.engine.cio.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.json.*
 import kotlinx.serialization.json.Json
@@ -43,7 +38,8 @@ class OpenAI : LLMRepository {
             request = ChatCompletionRequest(
                 model = request.model,
                 messages = chatMessages,
-                functions = params
+                functions = params,
+                functionCall = FunctionMode.Auto
             )
         )
 
@@ -52,13 +48,13 @@ class OpenAI : LLMRepository {
 
         if ((finishReason?.value ?: throw RuntimeException("Fail call open ai")) in setOf("tool_calls", "function_call")) {
 
-            val functionCall = message.toolCalls?.firstOrNull() as? ToolCall.Function
+            val functionCall = message.functionCall
                 ?: return LLMResponse("함수 호출 정보가 없습니다.")
 
-            val functionName = functionCall.function.name
-            val argumentsJson = Json.parseToJsonElement(functionCall.function.arguments).jsonObject
+            val functionName = functionCall.name
+            val argumentsJson = Json.parseToJsonElement(functionCall.arguments).jsonObject
             val argsMap = argumentsJson.toStringMap()
-
+            
             val answer = provideFunction(functionName, argsMap)
             return LLMResponse(answer)
         }
