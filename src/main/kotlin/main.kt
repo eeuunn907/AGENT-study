@@ -1,5 +1,5 @@
 import kotlinx.coroutines.runBlocking
-import `week1-refactoring`.domain.llm.service.LLMService
+import `lesson1-refactoring`.domain.llm.service.LLMService
 
 fun main() = runBlocking {
     try {
