@@ -79,6 +79,6 @@ Long-term Memory (장기 기억)
 장기 기억 = 지속적으로 누적·활용되는 정보
 
 ⸻  
-Embedding으로 문장을 숫자로 변환하고, Retrieval로 관련 문서를 찾아내며,
-Short-term과 Long-term Memory를 나눠 관리함으로써
-‘문서 기반 Q&A + 지속적 학습형 AI’ 구현이 가능해집니다.
+Embedding으로 문장을 숫자로 변환하고, Retrieval로 관련 문서를 찾아내며,  
+Short-term과 Long-term Memory를 나눠 관리함으로써  
+‘문서 기반 Q&A + 지속적 학습형 AI’ 구현이 가능해집니다.  
