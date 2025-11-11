@@ -1,4 +1,6 @@
 package `lesson3-Retrieval_Domain_Expert`.application.agent
 
-class EmbeddingProvider {
+interface EmbeddingProvider {
+    fun embed(text: String): FloatArray
+    val dimension: Int
 }
